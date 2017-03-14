@@ -1,27 +1,27 @@
 var nombres = [];
 
 function Queue(){
-  this.items = [];
+  var items = [];
   this.enqueue = enqueue;
   this.dequeue = dequeue;
-  this.empty = empty;
+//  this.empty = empty;
   this.print = print;
   this.size = size;
 
   function enqueue(element){
-    this.items.push(element);
+    items.push(element);
   };
   function dequeue(){
-    this.items.shift();
+    return items.shift();
   };
-  function empty(){
-    return this.items.length == 0;
-  };
+/*  function empty(){
+    return items.length == 0;
+  }; */
   function print(){
-    return console.log(this.items.toString());
+    return console.log(items.toString());
   };
   function size(){
-    return this.items.length;
+    return items.length;
   };
 }
 
@@ -43,6 +43,6 @@ apellido.print();
 
 while(nombre.size() > 0){
   nombres.push(nombre.dequeue() + " " + apellido.dequeue());
-  console.log(nombre.size());
+  //console.log(nombre.size());
 };
 console.log(nombres);
