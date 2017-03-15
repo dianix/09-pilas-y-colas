@@ -1,19 +1,25 @@
 function Queue(){
-  this.items = [];
+  var items = [];
   this.enqueue = enqueue;
   this.dequeue = dequeue;
-
+  this.front = front;
+  this.back = back;
   this.print = print;
 
-
   function enqueue(element){
-    this.items.push(element);
+    items.push(element);
   };
   function dequeue(){
-    this.items.shift();
+    return items.shift();
+  };
+  function front(){
+    return items[0];
+  };
+  function back(){
+    return items[items.length-1];
   };
   function print(){
-    return console.log(this.items.toString());
+    return document.write(items.toString());
   };
 
 }
@@ -22,8 +28,9 @@ var usuarios = new Queue();
 var numeroUsuarios = parseInt(prompt("Indique la cantidad de usuarios que va a ingresar:"));
 
 for(var i=0; i<numeroUsuarios; i++){
-  usuarios.enqueue(prompt("Introduzca el nombre " + (i+1)));
+  usuarios.enqueue((prompt("Introduzca el nombre " + (i+1))).toUpperCase());
 };
+document.write("<h3>Lista de usuarios por orden de llegada:</h3>");
 usuarios.print();
-console.log("Primero en ser atendido: " + usuarios[0]);
-console.log("Ultimo en ser atendido: " + usuarios[usuarios.length-1]);
+document.write("<h4>Primero en ser atendido: " + usuarios.front()+"</h4>");
+document.write("<h4>Ultimo en ser atendido: " + usuarios.back()+"</h4>");
