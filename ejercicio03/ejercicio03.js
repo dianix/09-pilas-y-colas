@@ -21,7 +21,6 @@ function Queue(){
   function print(){
     return document.write(items.toString());
   };
-
 }
 
 var usuarios = new Queue();
